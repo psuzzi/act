@@ -22,7 +22,11 @@ dev(){
             source "${DEV_SCRIPT}"
             ;;
         code)
-            # different folder depending on system: WSL bash, Git bash
+            if ! command -v code &> /dev/null; then
+                printf "code not installed, please install it as per: https://code.visualstudio.com/docs/setup/linux"
+                exit 0
+            fi
+            # different folder depending on system
             code "${ACT_HOME}/dev.code-workspace" 
             ;;
         info)

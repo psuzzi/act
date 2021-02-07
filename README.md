@@ -12,3 +12,13 @@ Alternatively, install from remote
 where 
 - clone_dir : base folder to contain act (default is ${HOME} ) 
 - env_file : script to be altered for sourcing act (default ${HOME}/.bashrc)
+
+
+# Local development
+
+
+For local development, you can run 
+
+`cat setup.sh | bash -s -- "./" "./.bashrc"`
+
+Just remember to not overwrite your current installation
