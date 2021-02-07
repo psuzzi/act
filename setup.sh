@@ -1,26 +1,31 @@
 #!/bin/bash
 
-echo "SETUP: ${1} ${2}"
+echo "Act Setup Script with parameters : ${@}"
+
+local clone_dir=${1:-~/}
+local env_file=${2:-~/.bashrc}
 
 setup(){
 
-    echo "SETUP: ${1} ${2}"
+    printf "\nParams before expansion\n- clone_dir:${clone_dir}\n- env_file:${env_file}\n"
 
     # replace tilde, get absolute path
     _xpand(){ realpath "${1/#\~/$HOME}"; }
 
-    local clone_dir=$(_xpand ${1})
-    local env_file=$(_xpand ${2})
+    clone_dir=$(_xpand ${clone_dir})
+    env_file=$(_xpand ${env_file})
 
+    printf "\n\n Preparing Setup\n- cloning into:${clone_dir}\n- updating env into:${env_file}\n"
 
-    echo "SETUP DEST: ${clone_dir} ${env_file}"
+    [ ! -d "$clone_dir" ] && echo "clone dir $clone_dir does not exists" && exit 1
+    [ ! -f "$env_file" ] && echo "env file $env_file does not exists" && exit 1
+
+    echo "SETUP ..."
 
     exit 0
 
     local env_line='export "ACT_HOME=${HOME}/act" && source "${ACT_HOME}/dev.sh"'
 
-    [ ! -d "$clone_dir" ] && echo "clone dir $clone_dir does not exists" && exit 1
-    [ ! -f "$env_file" ] && echo "env file $env_file does not exists" && exit 1
 
     echo "cloning into $clone_dir"
     echo "updating env into $env_file"
@@ -38,5 +43,4 @@ setup(){
 
 }
 
-
-setup "~/test/" "./bashrc"
+setup

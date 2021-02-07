@@ -7,7 +7,8 @@ Scripts to speed up development. To install
 
 Alternatively, install from remote
 
-`bash <(curl -Ls https://raw.githubusercontent.com/psuzzi/act/main/setup.sh)'
+`curl -Ls https://raw.githubusercontent.com/psuzzi/act/main/setup.sh | bash -s -- "clone_dir" "env_file"`
 
-base folder to contain "act" ? (default is ${HOME})
-env script to alter for sourcing ? (default is ${HOME}/.bashrc)
+where 
+- clone_dir : base folder to contain act (default is ${HOME} ) 
+- env_file : script to be altered for sourcing act (default ${HOME}/.bashrc)
