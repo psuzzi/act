@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "SETUP: ${1} ${2}"
+
 setup(){
 
     echo "SETUP: ${1} ${2}"
