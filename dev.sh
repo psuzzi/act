@@ -3,8 +3,8 @@
 DEV_SCRIPT="${ACT_HOME}/dev.sh"
 
 alias ls='ls -F'
-alias ll='ls -lh --color'
-alias lh='ls -lah --color'
+alias ll='ls -lh'
+alias lh='ls -lah'
 alias ..='cd ../'
 alias cl='clear'
 
